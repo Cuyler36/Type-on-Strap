@@ -7,12 +7,14 @@ tags: [Custom Code, Animal Forest e+, Item Name]
 excerpt_separator: <!--more-->
 ---
 
-Translating Doubutsu no Mori e+ has been fairly easy so far. Even though most text had been reduced in length, almost all messages, choices, and strings were kept in a separate BMG file. Unfortunately, I ran into a problem when I decided it was finally time to translate the item list. In DnMe+, item names had a max length of 10 characters. In Animal Crossing, it's 16. This would have been a simple task, if the item list _wasn't_ inside of forestd.rel (forest data relocation module).
+Translating Doubutsu no Mori e+ has been fairly easy so far. Even though most text had been reduced in length, almost all messages, choices, and strings were kept in a separate BMG file. Unfortunately, I ran into a problem when I decided it was finally time to translate the item list. In e+, item names had a max length of 10 characters. In Animal Crossing, the max length is 16. This would have been a simple task, if the item list _wasn't_ inside of forestd.rel (forest data relocation module).
 <!--more-->
+### The Plan
 To start off, I attempted to resize the relocation module to allow for the names to be retrieved from there. At the time, I didn't know about the relocation and import tables appended to the end of the file. This failed, and I was greeted by a black screen after the Nintendo logo. I decided to learn more about how the relocation file is structured, and learned that about the relocation and import tables. The import table contains a list of module ids (each rel file has an unique id assigned to it) followed by the location in the relocation table where this module is referred to. The relocation table allows the game to dynamically change instructions/data to fit where it is in memory. With that additional knowledge in hand, I attempted to again resize forestd.rel along with the relocation table. Unfortunately I was once again greeted with a blank screen after the logo.
 
 At this point I decided it was impractical to continue attempts to try and resize forestd.rel. After some contemplation, I realized that I could write my own custom item name retrieval routine. I added a file to forest\_2nd.arc (.arc is an RARC packed archive, sort of like virtual folders) that contained the translated item names at 16 characters a piece. After that, I arrived at the first problem. As it turns out, all the archive files are loaded into the GameCube's _ARAM_ (audio ram). It's not possible to simply address it because it doesn't exist in the same physical address space. To figure out how the game was retrieving NPC messages, I used Dolphin's debugger to trip a breakpoint when "mMsgLoad_get_res" was called. From there, I discovered that through the use of relocation tables, an address was written to two instructions: li and lis (load immediate and load immediate shifted). These two instructions had their operations added together to get the address to the start of msg.bmg in ARAM. Then a function called "GetResourceAram" is called which takes three arguments: the address in ARAM to copy from, the address to copy to in main RAM, and the size in bytes to copy. Knowing this, I came up with the idea of determining the static difference between the address of the function I was overriding (mIN\_copy\_name\_str) and the address of mMsgLoad\_get\_res. I used the instruction lhz (load half word and zero) to load the address to the ARAM start address. This required two calls and an add instruction to get the address.
 
+### Initial Attempt
 After doing that, I wrote the rest of my routine code. Here's the first version of it:
 ```assembly
     stwu r1, -0x20(r1) // allocate local variable storage
@@ -186,6 +188,7 @@ After doing that, I wrote the rest of my routine code. Here's the first version 
 ```
 There are a couple problems with the code above. Firstly, it went over the 104 instructions that the routine we were replacing had, secondly I didn't realize that GetResourceAram required that the ARAM address and the address to copy to be aligned to 32 bytes. Ultimately this attempt failed and I went back to the drawing board.
 
+### The Final Version
 Next, I came up with the idea of using a loop to figure out the index based on a separate, smaller file also in forest_2nd.arc. This file has a structure containing three shorts in a row: the beginning of the item type's item index, the end of the item type's index, and the offset into the name file where the first item of that type can be found. After quite a bit of work, I finished a revamped version of the routine:
 ```assembly
     stwu r1, -0xD0(r1)
@@ -307,4 +310,5 @@ Here's a few screenshots of the translated names:
 ![Blue Bureau](https://puu.sh/yas1b/2d562a3dba.png)
 ![Big Dot Shirt](https://puu.sh/yasy8/4de10e8b0c.png)
 
+### Conclusion
 Overall, I'm satisfied with the results. It was many hours of work, as I had to learn PowerPC Assembly and learn how to turn it into it's hex counterpart, but it works! I believe it will be a breeze from here on out.
