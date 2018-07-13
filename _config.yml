@@ -9,7 +9,7 @@ description: "Cuyler36's blog" # used by search engines
 theme_settings:
   # Meta
   title: Cuyler's blog # blog's title
-  avatar: assets/img/triangle.svg
+  avatar: assets/img/C.png
   favicon: assets/favicon.ico
   gravatar: # Email MD5 hash
 
