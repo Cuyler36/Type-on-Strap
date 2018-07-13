@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Implementing a Custom Item Name Routine
+feature-img: "assets/img/Banner.png"
+thumbnail: "assets/img/Banner.png"
 tags: [Custom Code, Animal Forest e+, Item Name]
 excerpt_separator: <!--more-->
 ---
