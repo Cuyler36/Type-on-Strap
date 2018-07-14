@@ -17,7 +17,7 @@ The basic idea that I had for the loader was simple. Treat the NES ROM as data i
 * It must be no larger than 251 bytes in size, as the tag responsible for patching used four bytes for other information.
 
 #### A Deeper Look at the Limitations
-Let's take a break for a moment to breakdown why the limitations mentioned above exist. First, let's look at the write address limitation. The GameCube's main RAM is 24 megabytes in size, and starts at 0x80000000. This makes the effective address range 0x80000000 - 0x817FFFFF. So why can the tag only patch to a third of that address? The answer lies in the code responsible for calculating where to write the address. Let's take a look at that code:
+Let's take a break for a moment to breakdown why the limitations mentioned above exist. First, let's look at the write address limitation. The GameCube's main RAM is 24 megabytes in size, and starts at 0x80000000. This makes the effective address range 0x80000000 - 0x817FFFFF. So why can the tag only patch to a third of that address? The answer lies in the code responsible for calculating the write address. Let's take a look at that code:
 
 ![PAT Tag Handling Code]({{ site.baseurl }}/assets/img/nesaceloader/nesinfo_tag_process2_PAT_typecheck.png)
 
