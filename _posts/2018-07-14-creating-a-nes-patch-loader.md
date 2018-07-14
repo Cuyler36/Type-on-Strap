@@ -21,7 +21,7 @@ Let's take a break for a moment to breakdown why the limitations mentioned above
 
 ![PAT Tag Handling Code]({{ site.baseurl }}/assets/img/nesaceloader/nesinfo_tag_process2_PAT_typecheck.png)
 
-Taking the above code into account, we can see there are `four` cases that determine how the write address is calcuated. The first one checks if the PAT type is 3. If so, it will clear the address entirely, resetting any address we had before.
+Taking the above code into account, we can see there are **four** cases that determine how the write address is calcuated. The first one checks if the PAT type is 3. If so, it will clear the address entirely, resetting any address we had before.
 
 The second one checks if the type is 2. If so, it'll take the next two bytes after the PAT type and use that as a 16 bit value to add to the current patch address.
 
@@ -53,7 +53,7 @@ struct TagPAT {
 };
 ```
 
-Looking at the structure, we can see that there are `two` bytes responsible for size. The first one _Size_ refers to the entire size of the tag data, minus the Tag type that preceeds it. Since it's a byte, it can be between 0 and 255 (0x00 - 0xFF). The second size value, `CopySize`, is how many bytes the emulator should copy during patching. Since we know the maximum size the tag can be is 255 bytes, we can just subtract the size of non-patch data in the struct to figure out the maximum copy size. Since the first size isn't included, we end up with four bytes of data reserved for calculating the write address.
+Looking at the structure, we can see that there are **two** bytes responsible for size. The first one `Size` refers to the entire size of the tag data, minus the Tag type that preceeds it. Since it's a byte, it can be between 0 and 255 (0x00 - 0xFF). The second size value, `CopySize`, is how many bytes the emulator should copy during patching. Since we know the maximum size the tag can be is 255 bytes, we can just subtract the size of non-patch data in the struct to figure out the maximum copy size. Since the first size isn't included, we end up with four bytes of data reserved for calculating the write address.
 
 > 255 - 4 = 251 (0xFF - 0x04 = 0xFB)
 
