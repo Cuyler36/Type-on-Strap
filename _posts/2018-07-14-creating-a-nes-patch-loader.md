@@ -60,7 +60,7 @@ Looking at the structure, we can see that there are `two` bytes responsible for 
 So that's where the maximum patch size of 251 comes from! Now that we know our limitations in depth, we can pick where we'll write the loader to!
 
 #### Determining the Write Address
-As nice as it'd be to just pick 0x80000000 as the patch loader write address, we need to take caution in where we write it to. The lower address in RAM contain important game information and code that would likely crash the game if it was overwritten! Knowing this, I fired up Dolphin Emulator in debug mode, and dumped the game's RAM while it was running. After a short while of searching, I found a large enough section of unused RAM located at 0x80003640.
+As nice as it'd be to just pick 0x80000000 as the patch loader write address, we need to take caution in where we write it to. The lower addresses in RAM contain important game information and code that would likely crash the game if it was overwritten! Knowing this, I fired up Dolphin Emulator in debug mode, and dumped the game's RAM while it was running. After a short while of searching, I found a large enough section of unused RAM located at 0x80003640.
 
 ![RAM at 0x80003640]({{ site.baseurl }}/assets/img/nesaceloader/animal-crossing-memory.png)
 
