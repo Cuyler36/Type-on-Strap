@@ -53,7 +53,7 @@ struct TagPAT {
 };
 ```
 
-Looking at the structure, we can see that there are **two** bytes responsible for size. The first one `Size` refers to the entire size of the tag data, minus the Tag type that preceeds it. Since it's a byte, it can be between 0 and 255 (0x00 - 0xFF). The second size value, `CopySize`, is how many bytes the emulator should copy during patching. Since we know the maximum size the tag can be is 255 bytes, we can just subtract the size of non-patch data in the struct to figure out the maximum copy size. Since the first size isn't included, we end up with four bytes of data reserved for calculating the write address.
+Looking at the structure, we can see that there are **two** bytes responsible for size. The first one, `Size`, refers to the entire size of the tag data, minus the Tag type that preceeds it. Since it's a byte, it can be between 0 and 255 (0x00 - 0xFF). The second size value, `CopySize`, is how many bytes the emulator should copy during patching. Since we know the maximum size the tag can be is 255 bytes, we can just subtract the size of non-patch data in the struct to figure out the maximum copy size. Since the first size isn't included, we end up with four bytes of data reserved for calculating the write address.
 
 > 255 - 4 = 251 (0xFF - 0x04 = 0xFB)
 
