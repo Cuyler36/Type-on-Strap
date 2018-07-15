@@ -16,7 +16,7 @@ At this point I decided it was impractical to continue attempts to try and resiz
 
 ### `Initial Attempt`
 After doing that, I wrote the rest of my routine code. Here's the first version of it:
-```assembly
+```nasm
     stwu r1, -0x20(r1) // allocate local variable storage
     mflr r0
     stw r0, 0x24(r1)
@@ -190,7 +190,7 @@ There are a couple problems with the code above. Firstly, it went over the 104 i
 
 ### `The Final Version`
 Next, I came up with the idea of using a loop to figure out the index based on a separate, smaller file also in forest_2nd.arc. This file has a structure containing three shorts in a row: the beginning of the item type's item index, the end of the item type's index, and the offset into the name file where the first item of that type can be found. After quite a bit of work, I finished a revamped version of the routine:
-```assembly
+```nasm
     stwu r1, -0xD0(r1)
     mflr r0
     stw r0, 0xD4(r1)
