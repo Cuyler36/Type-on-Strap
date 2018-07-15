@@ -93,7 +93,7 @@ Now we can _finally_ begin writing the patch!
 
 This is the original patch I created:
 
-```assembly
+```nasm
 .text
 // allocate stack frame
 stwu r1, -0x20(r1)
@@ -169,7 +169,7 @@ Looking at it, there are several problems. The first is that the Gekko CPU in th
 
 James Chambers took a look at my code and found that we could overwrite a stored function pointer in `my_malloc` to avoid overwriting code itself. Ultimately I discovered it was better to overwrite the pointer to `my_free` instead, as it is always called when the emulator ends. I also implemented instruction and data cache invalidations for the addresses the loader writes to. Here's the final version of the patch loader:
 
-```assembly
+```nasm
 .text
 // allocate stack frame
 stwu r1, -0x30(r1)
