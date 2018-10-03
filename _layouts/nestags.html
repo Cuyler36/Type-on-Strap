@@ -109,7 +109,7 @@ table#cmdtable tbody {
 		var tagTables = document.getElementsByClassName("commandtable");
 		
 		for (var i = 0; i < tagTables.length; i++) {
-			if (tagTables[i].name.indexOf(filter) !== -1) {
+			if (tagTables[i].getAttribute("name").indexOf(filter) !== -1) {
 				tagTables[i].style.display = "table";
 			}
 			else {
