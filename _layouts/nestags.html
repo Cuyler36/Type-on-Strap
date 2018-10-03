@@ -33,7 +33,7 @@ table#cmdtable tbody {
 <br>
 <br>
 <ul id="results-container"></ul>
-<table id="cmdtable">
+<table name="end" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
 			<th>
@@ -45,7 +45,7 @@ table#cmdtable tbody {
 		</tr>
 	</tbody>
 </table>
-<table id="cmdtable">
+<table name="veq" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
 			<th>VEQ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Equal</h3></th>
@@ -56,7 +56,7 @@ table#cmdtable tbody {
 		</tr>
 	</tbody>
 </table>
-<table id="cmdtable">
+<table name="vne" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
 			<th>VNE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Not Equal</h3></th>
@@ -67,7 +67,7 @@ table#cmdtable tbody {
 		</tr>
 	</tbody>
 </table>
-<table id="cmdtable">
+<table name="gid" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
 			<th>GID <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game ID</h3></th>
@@ -78,7 +78,7 @@ table#cmdtable tbody {
 		</tr>
 	</tbody>
 </table>
-<table id="cmdtable">
+<table name="gnm" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
 			<th>GNM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game Name</h3></th>
@@ -89,7 +89,7 @@ table#cmdtable tbody {
 		</tr>
 	</tbody>
 </table>
-<table id="cmdtable">
+<table name="cpn" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
 			<th>CPN <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Copy Name</h3></th>
@@ -101,5 +101,22 @@ table#cmdtable tbody {
 	</tbody>
 </table>
 <section>
+
+	<script>
+	function search() {
+		var input = document.getElementById("search-input");
+		var filter = input.value.toLowerCase();
+		var tagTables = document.getElementsByClassName("commandtable");
+		
+		for (var i = 0; i < tagTables.length; i++) {
+			if (tagTables[i].name.indexOf(filter) !== -1) {
+				tagTables[i].style.display = "table";
+			}
+			else {
+				tagTables[i].style.display = "none";
+			}
+		}
+	}
+	</script>
 
 </section>
