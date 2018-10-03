@@ -7,10 +7,10 @@ layout: page
 <br>
 <br>
 <ul id="results-container"></ul>
-<table style="width:100%">
+<table id="cmdtable">
 	<tbody>
 		<tr>
-			<td>END</td>
+			<th>END</th>
 			<td>Signals the end of command tags. Terminates the parser immediately.</td>
 		</tr>
 	</tbody>
@@ -19,3 +19,12 @@ layout: page
 <section>
 
 </section>
+
+table#cmdtable {
+	background-color: #fff;
+	style="width:100%";
+}
+
+table#cmdtable th {
+	background-color: #eee;
+}
