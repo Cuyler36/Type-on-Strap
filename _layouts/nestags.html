@@ -11,11 +11,73 @@ layout: page
 	<tbody>
 		<tr>
 			<th>END</th>
-			<td>Signals the end of command tags. Terminates the parser immediately.</td>
+			<td>
+			<b>End</b>
+			Signals the end of command tags. Terminates the parser immediately.
+			</td>
 		</tr>
 	</tbody>
 </table>
-
+<table id="cmdtable">
+	<tbody>
+		<tr>
+			<th>VEQ</th>
+			<td>
+			<b>Variable Equal</b>
+			If the unsigned byte at <b>TagData + 4</b> is not equal to 1, the next tag will be skipped.
+			<b>Argument #1:</b> <i>u8</i> Value
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table id="cmdtable">
+	<tbody>
+		<tr>
+			<th>VNE</th>
+			<td>
+			<b>Variable Not Equal</b>
+			If the unsigned byte at <b>TagData + 4</b> is equal to 1, the next tag will be skipped.
+			<b>Argument #1:</b> <i>u8</i> Value
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table id="cmdtable">
+	<tbody>
+		<tr>
+			<th>GID</th>
+			<td>
+			<b>Game ID</b>
+			The ID of the game. Can be anything.
+			<b>Argument #1:</b> <i>char[]</i> GameId
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table id="cmdtable">
+	<tbody>
+		<tr>
+			<th>GNM</th>
+			<td>
+			<b>Game Name</b>
+			The name of the game. Can be anything.
+			<b>Argument #1:</b> <i>char[]</i> GameName
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table id="cmdtable">
+	<tbody>
+		<tr>
+			<th>CPN</th>
+			<td>
+			<b>Copy Name</b>
+			The name of the game's save data. Can be anything.
+			<b>Argument #1:</b> <i>char[]</i> CopyName
+			</td>
+		</tr>
+	</tbody>
+</table>
 <section>
 
 </section>
