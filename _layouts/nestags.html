@@ -50,8 +50,8 @@ table#cmdtable tbody {
 		<tr>
 			<th>VEQ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Equal</h3></th>
 			<td>
-			If the unsigned byte at <b>TagData + 4</b> is not equal to 1, the next tag will be skipped.</br>
-			<b>Argument #1:</b> <i>u8</i> Value
+			If the boolean at <b>TagData + 4</b> is not <font color="#cc0066">true</font>, the next tag will be skipped.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">bool</font></i> Enabled
 			</td>
 		</tr>
 	</tbody>
@@ -61,8 +61,8 @@ table#cmdtable tbody {
 		<tr>
 			<th>VNE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Not Equal</h3></th>
 			<td>
-			If the unsigned byte at <b>TagData + 4</b> is equal to 1, the next tag will be skipped</br>
-			<b>Argument #1:</b> <i>u8</i> Value
+			If the boolean at <b>TagData + 4</b> is equal to <font color="#cc0066">true</font>, the next tag will be skipped</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">bool</font></i> Enabled
 			</td>
 		</tr>
 	</tbody>
@@ -73,7 +73,7 @@ table#cmdtable tbody {
 			<th>GID <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game ID</h3></th>
 			<td>
 			The ID of the game. Can be anything.</br>
-			<b>Argument #1:</b> <i>char[]</i> GameId
+			<b>Argument #1:</b> <i><font color="#cc0066">char[]</font></i> GameId
 			</td>
 		</tr>
 	</tbody>
@@ -84,7 +84,7 @@ table#cmdtable tbody {
 			<th>GNM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game Name</h3></th>
 			<td>
 			The name of the game. Can be anything.</br>
-			<b>Argument #1:</b> <i>char[]</i> GameName
+			<b>Argument #1:</b> <i><font color="#cc0066">char[]</font></i> GameName
 			</td>
 		</tr>
 	</tbody>
@@ -95,7 +95,7 @@ table#cmdtable tbody {
 			<th>CPN <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Copy Name</h3></th>
 			<td>
 			The name of the game's save data. Can be anything.</br>
-			<b>Argument #1:</b> <i>char[]</i> CopyName
+			<b>Argument #1:</b> <i><font color="#cc0066">char[]</font></i> CopyName
 			</td>
 		</tr>
 	</tbody>
