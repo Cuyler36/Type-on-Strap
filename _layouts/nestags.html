@@ -8,7 +8,6 @@ table#cmdtable {
 	overflow-x: hidden;
 	width: 100%;
 	display: table;
-	transition: transform .2s ease-in-out;
 }
 
 table#cmdtable th {
@@ -28,6 +27,12 @@ table#cmdtable tbody {
 }
 
 </style>
+
+<div text-align="center">
+NES Tags are a commands used by the NES Emulator in the first generation Animal Crossing games.
+They tell the emulator to set specific settings for the ROM that is being loaded.
+This page contains a list of all tags with a description and argument list for each one.
+</div>
 
 <!-- Html Elements for Search -->
 <input type="text" id="search-input" placeholder="Search..." onkeyup="search()" class="search-bar">
@@ -99,6 +104,30 @@ table#cmdtable tbody {
 		</tr>
 	</tbody>
 </table>
+<table name="ofs" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>OFS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Offset</h3></th>
+			<td>
+			Sets the write offset/size used in various other tags.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> Offset
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="hsc" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>HSC <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">High Scores</h3></th>
+			<td>
+			Tells the emulator that specific area(s) of the ROM should be treated as a high score. If it is the first time loading the game, DefaultValues will be copied starting at CurrentOffset + Offset.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> Offset
+			<b>Argument #2:</b> <i><font color="#cc0066">char[]</font></i> DefaultValues
+			</td>
+		</tr>
+	</tbody>
+</table>
+
 <section>
 
 	<script>
