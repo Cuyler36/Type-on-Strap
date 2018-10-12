@@ -259,12 +259,12 @@ This page contains a list of all tags with a description and argument list for e
 			<td>
 			Writes <b>PatchData</b> to a memory address which is calculated using <b>PatchType</b> and <b>PatchOffset</b>.</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> PatchType</br>
-				<font color="#00afaf">If PatchType is 2, the write address will be the address of the ROM + PatchOffset.
-				If PatchType is 3, the patch is skipped.
-				If PatchType is 9, the write address will be the address of the ROM + PatchOffset &lt&lt 4.
-				If PatchType is &gt= 0x80, the write address will be ((0x7F80 + PatchType) &lt&lt 16) | PatchOffset.</font>
+			<font color="#000000"><pre>    If PatchType is 2, the write address will be the address of the ROM + PatchOffset.</pre>
+			<pre>    If PatchType is 3, the patch is skipped.</pre>
+			<pre>    If PatchType is 9, the write address will be the address of the ROM + PatchOffset &lt&lt 4.</pre>
+			<pre>    If PatchType is &gt= 0x80, the write address will be ((0x7F80 + PatchType) &lt&lt 16) | PatchOffset.</pre></font></br>
 			<b>Argument #2:</b> <i><font color="#cc0066">byte[]</font></i> PatchSize</br>
-				Has a maximum size of 0xFB, as a Tag's max length is 0xFF and the Tag data takes up the first four bytes.
+			<pre>	Has a maximum size of 0xFB, as a Tag's max length is 0xFF and the Tag data takes up the first four bytes.</pre></br>
 			<b>Argument #3:</b> <i><font color="#cc0066">byte[]</font></i> PatchOffset</br>
 			<b>Argument #4:</b> <i><font color="#cc0066">byte[]</font></i> PatchData</br>
 			</td>
