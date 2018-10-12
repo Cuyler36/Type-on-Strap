@@ -139,6 +139,74 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
+<table name="bbr" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>BBR <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Battery Backup</h3></th>
+			<td>
+			Tells the emulator to save an area of RAM as battery backed up memory. Used for storing save data. <b>Offset</b> is added to the current offset value.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> Offset</br>
+			<b>Argument #2:</b> <i><font color="#cc0066">ushort</font></i> Size</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="qds" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>QDS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Quick Disk Save</h3></th>
+			<td>
+			Tells the emulator to save an area of RAM as a Famicom Quick Disk save file. Used for storing save data. <b>OffsetUpper</b> and <b>OffsetLower</b> are concatenated to make a 24-bit value that is added to the current offset value.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> OffsetUpper</br>
+			<b>Argument #2:</b> <i><font color="#cc0066">ushort</font></i> OffsetLower</br>
+			<b>Argument #3:</b> <i><font color="#cc0066">ushort</font></i> Size</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="spe" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>SPE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Special</h3></th>
+			<td>
+			Sets up specific patches to the currently loaded ROM. Only used in <i>The Legend of Zelda</i>.</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="tcs" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>TCS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Tags Checksum</h3></th>
+			<td>
+			Calculates a checksum for the tag data. If the additive checksum isn't equal to 0, the tags are considered corrupted & the parser immediately stops execution.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> TagsChecksumInverse</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="ics" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>ICS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">iNES Checksum</h3></th>
+			<td>
+			Calculates a checksum for the iNES ROM. If the additive checksum isn't equal to 0, the ROM is considered corrupted.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> TagsChecksumInverse</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="esz" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>ESZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Extended Size</h3></th>
+			<td>
+			Sets the emulator's ROM expanded size parameter. <b>ExpandSize</b> is the expanded size shifted left by 4.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> ExpandSize</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 <section>
 
