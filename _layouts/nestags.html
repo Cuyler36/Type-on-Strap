@@ -199,10 +199,116 @@ This page contains a list of all tags with a description and argument list for e
 <table name="esz" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>ESZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Extended Size</h3></th>
+			<th>ESZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Expanded Size</h3></th>
 			<td>
 			Sets the emulator's ROM expanded size parameter. <b>ExpandSize</b> is the expanded size shifted right by 4.</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> ExpandSize</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="rom" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>ROM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Expanded Size</h3></th>
+			<td>
+			Loads another NES ROM from the internal list using <b>RomId</b> to determine which ROM to load. The original tags for the ROM loaded are not used.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> RomId</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="mov" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>MOV <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Move Data</h3></th>
+			<td>
+			Moves a section of data in the ROM from one location to another. <b>WriteAddress</b> and <b>ReadAddress</b> are shifted right by four.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> WriteAddress</br>
+			<b>Argument #2:</b> <i><font color="#cc0066">ushort</font></i> ReadAddress</br>
+			<b>Argument #3:</b> <i><font color="#cc0066">ushort</font></i> Size</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="nhd" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>NHD <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">NES Header Data</h3></th>
+			<td>
+			Copies <b>HeaderData</b> to the iNES ROM's header. The size of the copy is determined by the Tag's argument size byte.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte[]</font></i> HeaderData</br>
+			</td>
+		</tr>
+	</tbody>
+</table
+<table name="dif" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>DIF <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Difference</h3></th>
+			<td>
+			Creates a difference of the ROM's program and character data sections. This command's purpose is not fully known yet.</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="pat" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>PAT <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Patch</h3></th>
+			<td>
+			Writes <b>PatchData</b> to a memory address which is calculated using <b>PatchType</b> and <b>PatchOffset</b>.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> PatchType</br>
+				<font color="#00afaf">If PatchType is 2, the write address will be the address of the ROM + PatchOffset.
+				If PatchType is 3, the patch is skipped.
+				If PatchType is 9, the write address will be the address of the ROM + PatchOffset &lt&lt 4.
+				If PatchType is &gt= 0x80, the write address will be ((0x7F80 + PatchType) &lt&lt 16) | PatchOffset.</font>
+			<b>Argument #2:</b> <i><font color="#cc0066">byte[]</font></i> PatchSize</br>
+				Has a maximum size of 0xFB, as a Tag's max length is 0xFF and the Tag data takes up the first four bytes.
+			<b>Argument #3:</b> <i><font color="#cc0066">byte[]</font></i> PatchOffset</br>
+			<b>Argument #4:</b> <i><font color="#cc0066">byte[]</font></i> PatchData</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Unused Tags</h2>
+<table name="fil" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>FIL <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<td>
+			Functions the same as END. If this is encountered, the parser will immediately exit.</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="isz" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>ISZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<td>
+			This tag is unused. It may stand for iNES size.</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="ifm" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>IFM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<td>
+			This tag is unused. Its purpose is unknown.</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="rem" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>REM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<td>
+			This tag is unused. Its purpose is unknown.</br>
 			</td>
 		</tr>
 	</tbody>
