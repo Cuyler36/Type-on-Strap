@@ -55,7 +55,7 @@ This page contains a list of all tags with a description and argument list for e
 		<tr>
 			<th>VEQ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Equal</h3></th>
 			<td>
-			If the boolean at <b>TagData + 4</b> is not <font color="#cc0066">true</font>, the next tag will be skipped.</br>
+			If the boolean <b>Argument #1</b> is not <font color="#cc0066">true</font>, the next tag will be skipped.</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">bool</font></i> Enabled
 			</td>
 		</tr>
@@ -66,7 +66,7 @@ This page contains a list of all tags with a description and argument list for e
 		<tr>
 			<th>VNE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Not Equal</h3></th>
 			<td>
-			If the boolean at <b>TagData + 4</b> is equal to <font color="#cc0066">true</font>, the next tag will be skipped</br>
+			If the boolean <b>Argument #1</b> is <font color="#cc0066">true</font>, the next tag will be skipped</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">bool</font></i> Enabled
 			</td>
 		</tr>
@@ -124,6 +124,17 @@ This page contains a list of all tags with a description and argument list for e
 			Tells the emulator that specific area(s) of the ROM should be treated as a high score. If it is the first time loading the game, DefaultValues will be copied starting at CurrentOffset + Offset.</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> Offset</br>
 			<b>Argument #2:</b> <i><font color="#cc0066">char[]</font></i> DefaultValues
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="gno" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>GNO <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Game Number</h3></th>
+			<td>
+			Sets the ROM's game number. This value is used to pull high scores from save data. Limited to between 0 and 31.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> GameNumber</br>
 			</td>
 		</tr>
 	</tbody>
