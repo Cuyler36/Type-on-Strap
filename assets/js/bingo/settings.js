@@ -29,7 +29,7 @@
 		{ "name": "Catch a Coelacanth", "difficulty":  3, "tags": ["Fish"] },
 		{ "name": "Catch a Koi", "difficulty":  4, "tags": ["Fish"] },
 		{ "name": "Catch a Pufferfish", "difficulty":  2, "tags": ["Fish"] },
-		{ "name": "Catch a Blue Marlin", "difficulty":  5, "tags": ["Fish"] },
+		{ "name": "Catch 10 different types of ocean fish", "difficulty":  5, "tags": ["Fish"] },
 		{ "name": "Catch 3 Brook Trout", "difficulty":  3, "tags": ["Fish"] },
 		{ "name": "Catch all 4 types of bass", "difficulty":  1, "tags": ["Fish"] },
 		{ "name": "Have 20 different fish in your encyclopedia", "difficulty":  4, "tags": ["Fish"] },
