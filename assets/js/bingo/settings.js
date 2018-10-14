@@ -14,7 +14,7 @@
 		{ "name": "Catch a Bagworm", "difficulty":  3, "tags": ["Insects"] },
 		{ "name": "Catch a Banded Dragonfly", "difficulty":  5, "tags": ["Insects"] },
 		{ "name": "Catch a Birdwing Butterfly", "difficulty":  4, "tags": ["Insects"] },
-		{ "name": "Catch a Heracles Beetle", "difficulty":  6, "tags": ["Insects"] },
+		{ "name": "Catch both a Crab and a Hermit Crab", "difficulty":  6, "tags": ["Insects"] },
 		{ "name": "Catch 2 Bees", "difficulty":  3, "tags": ["Insects"] },
 		{ "name": "Catch 3 Snails", "difficulty":  3, "tags": ["Insects"] },
 		{ "name": "Catch all 4 types of cicadas", "difficulty":  1, "tags": ["Insects"] },
