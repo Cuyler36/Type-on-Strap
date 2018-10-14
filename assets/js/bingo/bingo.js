@@ -456,7 +456,7 @@ function regenerateBoard()
 
 		case 2: // #!
 			seed = Math.floor(Math.random() * 60466176);
-			location.hash = "#!/" + game + "/" + seed.toString(36);
+			location.hash = "#!" + "/" + seed.toString(36);
 			break;
 
 		case 3: // #!/seed
@@ -469,7 +469,7 @@ function regenerateBoard()
 			break;
 	}
 
-	BINGO = new Bingo(game, 5, seed, difficulty);
+	BINGO = new Bingo(5, seed, difficulty);
 }
 
 function setDifficulty(diff)
