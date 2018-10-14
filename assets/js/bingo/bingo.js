@@ -451,19 +451,18 @@ function regenerateBoard()
 	switch (parts.length)
 	{
 		case 0:
-		case 1:
 			break;
 
-		case 2: // #!
+		case 1: // #!
 			seed = Math.floor(Math.random() * 60466176);
 			location.hash = "#!" + "/" + seed.toString(36);
 			break;
 
-		case 3: // #!/seed
+		case 2: // #!/seed
 			seed = parseInt(parts[1].toLowerCase(), 36);
 			break;
 
-		case 4: // #!/seed/difficulty
+		case 3: // #!/seed/difficulty
 			seed = parseInt(parts[1].toLowerCase(), 36);
 			difficulty = parts[2];
 			break;
