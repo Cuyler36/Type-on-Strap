@@ -2,9 +2,9 @@
 	"rules": [
 		"Timer starts when you press the start button on the title screen.",
 		"Timer ends when you complete a row/column/diagonal.",
-		"You are not allowed to use a Gameboy Advance, e-Reader, etc.",
+		"You are not allowed to use a GameBoy Advance, e-Reader, etc.",
 		"You are not allowed to use Tom Nook codes.",
-		"You are not allowed to use any pre-existing data, including towns, saved letters, etc.",
+		"You are not allowed to use any preexisting data, including towns, saved letters, etc.",
 		"You are not allowed to use glitches of any kind." ],
 	
 	"goals": [
@@ -81,7 +81,7 @@
 		{ "name": "Spin an umbrella in the rain", "difficulty":  1, "tags": ["Misc"] },
 		{ "name": "Kick 5 balls into the water", "difficulty":  2, "tags": ["Misc"] },
 		{ "name": "Kill 7 cockroaches in your house", "difficulty":  1, "tags": ["Misc"] },
-		{ "name": "Get a villager to wear a shirt of themself", "difficulty":  2, "tags": ["Misc"] },
+		{ "name": "Get a villager to wear a shirt of themselves", "difficulty":  2, "tags": ["Misc"] },
 		{ "name": "Eat 5 pieces of candy", "difficulty":  1, "tags": ["Misc"] },
 		
 		{ "name": "Get a lottery ticket for every month", "difficulty":  3, "tags": ["Tasks"] },
