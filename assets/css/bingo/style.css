@@ -1,0 +1,172 @@
+html, body
+{
+	color: #D6D6D6;
+	font-family: 'Lato', sans-serif;
+	height: 100%;
+	background-color: #282828;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+body.popout
+{
+	margin: 0 auto;
+	padding: 0;
+}
+
+#panel-container #about-panel
+{
+	font-size: 10pt;
+}
+
+#panel-container #about-panel ul li
+{
+	margin-bottom: 5px;
+}
+
+#button-row
+{
+	margin: 10px auto;
+}
+
+#bingo
+{
+	border-collapse: collapse;
+	
+	/* don't allow text to be selected */
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	
+	/* don't show a text cursor */
+	cursor: default;
+}
+
+body.popout #bingo
+{
+	width: 99%;
+	height: 100%;
+}
+
+#bingo-container
+{
+	padding-right: 0px !important;
+	padding-left: 20px;
+}
+
+#bingo
+{
+	float: right;
+}
+
+#bingo td
+{
+	border: 1px solid black;
+	text-align: center;
+}
+
+#bingo td.header
+{
+	font-weight: bold;
+	font-size: 10pt;
+	padding: 5px;
+	cursor: pointer;
+}
+
+#bingo td.header[data-type="diag1"]
+{
+	width: 0;
+}
+
+body.popout #bingo td.header
+{
+	height: 0px;
+	
+	box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+}
+
+#bingo td.goal
+{
+	box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+	padding: 3px;
+	cursor: pointer;
+}
+
+.note
+{
+	font-size: 8pt;
+	color: gray;
+}
+
+.note.right
+{
+	float: right;
+	clear: both;
+	margin-right: 10px;
+}
+
+.note.spaced
+{
+	margin-bottom: 5px;
+}
+
+body.popout #bingo td.goal
+{
+	height: 20%;
+}
+
+#bingo td.goal:hover, #bingo td.goal.hover
+{
+	background-color: #3F3F3F;
+}
+
+#bingo td.goal.yes
+{
+	background-color: #488948;
+}
+
+#bingo td.goal.yes:hover, #bingo td.goal.yes.hover
+{
+	background-color: #529B52;
+}
+
+#bingo td.goal.no
+{
+	background-color: #874747;
+}
+
+#bingo td.goal.no:hover, #bingo td.goal.no.hover
+{
+	background-color: #995151;
+}
+
+#bingo td span
+{
+	display: block;
+	font-size: 8pt;
+}
+
+#bingo.large td span
+{
+	font-size: 10pt;
+}
+
+/*#bingo td span.goaltext
+{
+	font-weight: bold;
+}*/
+
+#bingo td span.modtext
+{
+	font-size: 6pt;
+	color: #ADADAD;
+}
+
+#bingo.large td span.modtext
+{
+	font-size: 8pt;
+}

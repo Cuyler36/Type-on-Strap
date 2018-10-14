@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Bingo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="../assets/js/vendor/bootstrap.min.css">
+	<style>
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+	</style>
+	<link rel="stylesheet" href="../assets/js/vendor/bootstrap-theme.min.css">
+
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="../assets/js/vendor/normalize.css">
+	<link rel="stylesheet" href="../assets/js/vendor/main.css">
+	<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../assets/css/bingo/style.css"></link>
+</head>
+<body>
+
+<div id="panel-container" class="row">
+	<div id="bingo-container" class="col-md-5 col-md-offset-1"></div>
+	<div id="about-panel" class="col-md-5">
+		<div>
+			<h3><span id="game-name"></span> Bingo 
+				<span id="bingo-attrib" class="note">by <span id="bingo-author"></span></span></h3>
+			<h4>Generate New Card</h4>
+			<span class="note">If you were linked to this page as your goal, you are not allowed to generate a new card.</span>
+			<div id="button-row" class="row">
+				<button class="btn btn-default col-md4 set-diff" data-diff="easy">Easy Card</button>
+				<button class="btn btn-default col-md4 set-diff" data-diff="">Normal Card</button>
+				<button class="btn btn-default col-md4 set-diff" data-diff="hard">Hard Card</button>
+			</div>
+			<span class="note spaced">
+				<input type="checkbox" id="large-card"> Use Large Card
+			</span>
+			
+		</div>
+		<div id="game-rules">
+			<h4>Rules</h4>
+			<ul></ul>
+		</div>
+		
+		<div>
+			<h4>About Video Game Bingo</h4>
+			<p>To win a "Bingo" race, you must complete 5 of the tasks in a row horizontally, vertically, or diagonally.</p>
+			<p>The seed number is used to generate the board. Changing the seed will make a new board.</p>
+			<p>You can click on the squares to turn them green and red. This may help you organize your route planning.</p>
+		</div>
+		
+		<span class="note right spaced">
+			Created by authorblues (<a href="http://www.twitch.tv/authorblues" target="_blank">twitch.tv/authorblues</a>)
+		</span>
+		<span class="note right spaced">
+			Styling based on SRT Bingo by Nmaster64 and SRL Bingo by Narcissa
+		</span>
+	</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="../assets/js/bingo/bingo.js"></script>
+</body>
+</html>
