@@ -206,7 +206,7 @@ function Bingo(size, seed, difficulty, balance)
 		$("#bingo td.goal." + $(this).attr("data-type")).each(function(i, x){ tds.push(x); });
 		console.log(tds.length, tds);
 
-		var win = window.open('popout.html', '_blank', 'toolbar=no, location=no, directories=no, status=no, '
+		var win = window.open('https://cuyler36.github.io/bingo/popout/', '_blank', 'toolbar=no, location=no, directories=no, status=no, '
 			+ 'menubar=no, scrollbars=no, resizable=yes, copyhistory=no, width=250, height=550');
 		win.addEventListener('load', (function(title, elems)
 		{
