@@ -119,7 +119,7 @@ function Bingo(size, seed, difficulty, balance)
 	this.balanced = balance;
 
 	this.gamedata = null;
-	$.getJSON("settings.js", (function(bingo)
+	$.getJSON("/settings.js", (function(bingo)
 	{
 		return function(data)
 		{
