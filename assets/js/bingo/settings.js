@@ -97,6 +97,7 @@
 		{ "name": "Pay off your 2nd debt", "difficulty":  5, "tags": ["Debts"] },
 		{ "name": "Pay off your 3rd debt", "difficulty":  6, "tags": ["Debts"] },
 		{ "name": "Pay off your 4th debt", "difficulty":  9, "tags": ["Debts"] },
+		{ "name": "Pay off your 5th debt and visit your new island", "difficulty": 10, "tags": ["Debts"] },
 		
 		{ "name": "Eavesdrop on a villager conversation", "difficulty":  1, "tags": ["Villagers"] },
 		{ "name": "Complete 5 villager chores", "difficulty":  1, "tags": ["Villagers"] },
