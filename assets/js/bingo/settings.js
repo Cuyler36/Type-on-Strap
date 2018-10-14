@@ -5,7 +5,7 @@
 		"You are not allowed to use a Gameboy Advance, e-Reader, etc.",
 		"You are not allowed to use Tom Nook codes.",
 		"You are not allowed to use any pre-existing data, including towns, saved letters, etc.",
-		"You are not allowed to use glitches of any kind.", ],
+		"You are not allowed to use glitches of any kind." ],
 	
 	"goals": [
 		{ "name": "Catch a Spider", "difficulty":  2, "tags": ["Insects"] },
