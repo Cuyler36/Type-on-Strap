@@ -26,7 +26,7 @@
 		{ "name": "Catch a Piranha", "difficulty":  5, "tags": ["Fish"] },
 		{ "name": "Catch an Angelfish", "difficulty":  5, "tags": ["Fish"] },
 		{ "name": "Catch a Stringfish", "difficulty":  4, "tags": ["Fish"] },
-		{ "name": "Catch a Coelacanths", "difficulty":  3, "tags": ["Fish"] },
+		{ "name": "Catch a Coelacanth", "difficulty":  3, "tags": ["Fish"] },
 		{ "name": "Catch a Koi", "difficulty":  4, "tags": ["Fish"] },
 		{ "name": "Catch a Pufferfish", "difficulty":  2, "tags": ["Fish"] },
 		{ "name": "Catch a Blue Marlin", "difficulty":  5, "tags": ["Fish"] },
@@ -124,7 +124,7 @@
 		
 		{ "name": "Eat 3 mushrooms", "difficulty":  2, "tags": ["Nature"] },
 		{ "name": "Grow a non-native fruit tree", "difficulty":  4, "tags": ["Nature"] },
-		{ "name": "Grow one of every type of fruit tree, excluding coconuts", "difficulty":  6, "tags": ["Nature"] },
+		{ "name": "Grow one of every type of fruit tree, excluding coconuts", "difficulty":  8, "tags": ["Nature"] },
 		{ "name": "Plant a flower in every acre", "difficulty":  3, "tags": ["Nature"] },
 		{ "name": "Pick 25 weeds in a single day", "difficulty":  1, "tags": ["Nature"] },
 		{ "name": "Get 2 pieces of furniture from shaking trees", "difficulty":  2, "tags": ["Nature"] },
@@ -134,7 +134,7 @@
 		
 		{ "name": "Remove 5 stumps", "difficulty":  2, "tags": ["Digging"] },
 		{ "name": "Dig up 4 gyroids", "difficulty":  2, "tags": ["Digging"] },
-		{ "name": "Donate 6 fossils to the Museum", "difficulty":  2, "tags": ["Digging"] },
+		{ "name": "Donate 6 fossils to the Museum", "difficulty":  3, "tags": ["Digging"] },
 		{ "name": "Make a villager fall into a pitfall", "difficulty":  3, "tags": ["Digging"] },
 		{ "name": "Get at least 7 bell bags from one money rock", "difficulty":  2, "tags": ["Digging"] },
 		
