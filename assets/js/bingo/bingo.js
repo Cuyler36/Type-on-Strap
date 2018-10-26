@@ -190,10 +190,10 @@ function Bingo(size, seed, difficulty, balance)
 	$("#bingo td.goal").click(function(e)
 	{
 		var c = $(this).data('cell-data');
-		c.state = (c.state + 1) % 3;
+		c.state = (c.state + 1) % 4;
 
 		var cell = c.cell;
-		cell.removeClass("yes no").addClass([null, "yes", "no"][c.state]);
+		cell.removeClass("yes maybe no").addClass([null, "yes", "maybe", "no"][c.state]);
 	});
 	
 	$("#bingo td.header").hover(

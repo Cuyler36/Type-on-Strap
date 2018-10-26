@@ -134,6 +134,16 @@ body.popout #bingo td.goal
 	background-color: #529B52;
 }
 
+#bingo td.goal.maybe
+{
+	background-color: #A0A000;
+}
+
+#bingo td.goal.maybe:hover, #bingo td.goal.maybe.hover
+{
+	background-color: #B5B500;
+}
+
 #bingo td.goal.no
 {
 	background-color: #874747;
