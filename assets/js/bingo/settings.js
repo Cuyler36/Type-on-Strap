@@ -18,8 +18,8 @@
 		{ "name": "Catch a Crab and a Hermit Crab", "difficulty":  4, "tags": ["Insects"] },
 		{ "name": "Catch 2 Bees", "difficulty":  3, "tags": ["Insects"] },
 		{ "name": "Catch 3 Snails", "difficulty":  3, "tags": ["Insects"] },
-		{ "name": "Catch all 4 types of cicadas", "difficulty":  1, "tags": ["Insects"] },
-		{ "name": "Catch all 4 insects with 'cricket' in their name", "difficulty":  3, "tags": ["Insects"] },
+		{ "name": "Catch 4 insects with 'cicada' in their name", "difficulty":  2, "tags": ["Insects"] },
+		{ "name": "Catch 4 insects with 'cricket' in their name", "difficulty":  3, "tags": ["Insects"] },
 		{ "name": "Catch 10 different insects with 'beetle' in their name", "difficulty":  7, "tags": ["Insects"] },
 		{ "name": "Have 20 different insects in your encyclopedia", "difficulty":  4, "tags": ["Insects"] },
 		
@@ -34,7 +34,8 @@
 		{ "name": "Catch a Blue Marlin", "difficulty":  10, "tags": ["Fish"] },
 		{ "name": "Catch 3 Brook Trout", "difficulty":  3, "tags": ["Fish"] },
 		{ "name": "Catch all 4 types of bass", "difficulty":  1, "tags": ["Fish"] },
-		{ "name": "Catch 10 different types of ocean fish", "difficulty":  5, "tags": ["Fish"] },
+		{ "name": "Catch 7 different types of ocean fish", "difficulty":  5, "tags": ["Fish"] },
+		{ "name": "Catch 10 different types of ocean fish", "difficulty":  7, "tags": ["Fish"] },
 		{ "name": "Have 20 different fish in your encyclopedia", "difficulty":  4, "tags": ["Fish"] },
 		{ "name": "Catch all 3 fish that begin with 'A'", "difficulty":  7, "tags": ["Fish"] },
 		{ "name": "Catch all 4 fish that start with 'Large' or 'Giant'", "difficulty":  6, "tags": ["Fish"] },
@@ -71,7 +72,7 @@
 		{ "name": "Place a toilet in your house", "difficulty":  7, "tags": ["Furniture"] },
 		{ "name": "Place a totem pole in your house", "difficulty":  6, "tags": ["Furniture"] },
 		{ "name": "Place a stone in your house", "difficulty":  6, "tags": ["Furniture"] },
-		{ "name": "Place a clock in your house", "difficulty":  5, "tags": ["Furniture"] },
+		{ "name": "Get an item that has the word 'machine' in its name", "difficulty":  5, "tags": ["Furniture"] },
 		{ "name": "Place a chess piece in your house", "difficulty":  5, "tags": ["Furniture"] },
 		{ "name": "Place a musical instrument in your house", "difficulty":  4, "tags": ["Furniture"] },
 		{ "name": "Place a Mario or Luigi Trophy in your house", "difficulty":  7, "tags": ["Furniture"] },
@@ -80,8 +81,8 @@
 		
 		{ "name": "Get an item from Franklin", "difficulty":  2, "tags": ["Holidays"] },
 		{ "name": "Get an item from Jack", "difficulty":  4, "tags": ["Holidays"] },
-		{ "name": "Get an item from Jingle", "difficulty":  6, "tags": ["Holidays"] },
-		{ "name": "Get an item from the Snowman", "difficulty":  5, "tags": ["Holidays"] },
+		{ "name": "Get an item from Jingle", "difficulty":  5, "tags": ["Holidays"] },
+		{ "name": "Get an item from the Snowman", "difficulty":  6, "tags": ["Holidays"] },
 		
 		{ "name": "Get an item from Gulliver", "difficulty":  2, "tags": ["Random Events"] },
 		{ "name": "Get 2 items from Gulliver", "difficulty":  4, "tags": ["Random Events"] },
@@ -100,6 +101,7 @@
 		{ "name": "Get the Miniature Car and Dolly from Toy Day", "difficulty":  5, "tags": ["Events"] },
 		{ "name": "Get the Aerobics Radio from Morning Aerobics", "difficulty":  7, "tags": ["Events"] },
 		{ "name": "Get the Birthday Cake", "difficulty":  1, "tags": ["Events"] },
+		{ "name": "Get 10 different items that have 'Model' in its name", "difficulty":  5, "tags": ["Events"] },
 		{ "name": "Get the Lighthouse Model or Chocolates", "difficulty":  5, "tags": ["Events"] },
 		
 		{ "name": "See a rainbow over the waterfall", "difficulty":  1, "tags": ["Misc"] },
@@ -109,13 +111,13 @@
 		{ "name": "Get a villager to wear a shirt of themself", "difficulty":  2, "tags": ["Misc"] },
 		{ "name": "Eat 5 pieces of candy", "difficulty":  1, "tags": ["Misc"] },
 		
-		{ "name": "Get a lottery ticket for every month", "difficulty":  3, "tags": ["Tasks"] },
+		{ "name": "Get a lottery ticket for every month", "difficulty":  4, "tags": ["Tasks"] },
 		{ "name": "Open a present from a balloon", "difficulty":  4, "tags": ["Tasks"] },
 		{ "name": "Win an item from Nook's lottery", "difficulty":  3, "tags": ["Tasks"] },
 		{ "name": "Fill your inventory with seashells", "difficulty":  1, "tags": ["Tasks"] },
 		{ "name": "Open 5 grab bags", "difficulty":  1, "tags": ["Tasks"] },
 		{ "name": "Buy a pinwheel, balloon, and fan from Redd's stand", "difficulty":  3, "tags": ["Tasks"] },
-		{ "name": "Have Nook repaint your roof without upgrading your house", "difficulty":  4, "tags": ["Tasks"] },
+		{ "name": "Have Nook repaint your roof without upgrading your house", "difficulty":  5, "tags": ["Tasks"] },
 		
 		{ "name": "Pay off your 1st debt", "difficulty":  2, "tags": ["Debts"] },
 		{ "name": "Pay off your 2nd debt", "difficulty":  5, "tags": ["Debts"] },
@@ -130,10 +132,10 @@
 		{ "name": "Change a Villager's catchphrase to 'Mp16'", "difficulty":  4, "tags": ["Villagers"] },
 		{ "name": "Send a letter to 5 different villagers", "difficulty":  1, "tags": ["Villagers"] },
 		{ "name": "Complete a 'Catch a Fish or Bug' chore", "difficulty":  5, "tags": ["Villagers"] },
-		{ "name": "Complete a 'Find a Villager a Ball' chore", "difficulty":  5, "tags": ["Villagers"] },
-		{ "name": "Complete a 'Bring a Villager a Fruit' chore", "difficulty":  6, "tags": ["Villagers"] },
-		{ "name": "Complete a 'Plant Flowers OR Build a Snowman' chore", "difficulty":  6, "tags": ["Villagers"] },
-		{ "name": "Cure a villager's illness", "difficulty":  4, "tags": ["Villagers"] },
+		{ "name": "Complete a 'Find a Ball' chore", "difficulty":  6, "tags": ["Villagers"] },
+		{ "name": "Complete a 'Lost Item' chore", "difficulty":  5, "tags": ["Villagers"] },
+		{ "name": "Complete a 'Plant Flowers' chore", "difficulty":  5, "tags": ["Villagers"] },
+		{ "name": "Cure a villager's illness", "difficulty":  7, "tags": ["Villagers"] },
 		
 		{ "name": "Have Resetti fake reset your game", "difficulty":  1, "tags": ["Special Characters"] },
 		{ "name": "Enter the Reset Surveillance Center", "difficulty":  6, "tags": ["Special Characters"] },
@@ -141,7 +143,7 @@
 		{ "name": "Buy a painting from Crazy Redd", "difficulty":  4, "tags": ["Special Characters"] },
 		{ "name": "Buy 1000 turnips from Joan", "difficulty":  4, "tags": ["Special Characters"] },
 		
-		{ "name": "Get the Golden Shovel", "difficulty":  4, "tags": ["Tools"] },
+		{ "name": "Get the Golden Shovel", "difficulty":  3, "tags": ["Tools"] },
 		{ "name": "Get the Golden Axe", "difficulty":  6, "tags": ["Tools"] },
 		
 		{ "name": "Eat 2 mushrooms", "difficulty":  2, "tags": ["Nature"] },
@@ -162,7 +164,7 @@
 		{ "name": "Get at least 7 bell bags from one money rock", "difficulty":  2, "tags": ["Digging"] },
 		{ "name": "Get at least 8 bell bags from one money rock", "difficulty":  9, "tags": ["Digging"] },
 		
-		{ "name": "Get over 9k HRA points", "difficulty":  4, "tags": ["HRA"] },
+		{ "name": "Get over 10k HRA points", "difficulty":  3, "tags": ["HRA"] },
 		{ "name": "Get over 50k HRA points", "difficulty":  5, "tags": ["HRA"] },
 		{ "name": "Get over 75k HRA points", "difficulty":  6, "tags": ["HRA"] },
 		{ "name": "Get over 100k HRA points", "difficulty":  7, "tags": ["HRA"] },
@@ -171,7 +173,8 @@
 		{ "name": "Buy a Town Decoration", "difficulty":  2, "tags": ["Challenges"] },
 		{ "name": "Buy 3 Town Decorations", "difficulty":  4, "tags": ["Challenges"] },
 		{ "name": "Get a reward from Wisp", "difficulty":  5, "tags": ["Challenges"] },
-		{ "name": "Get the DUMMY item", "difficulty":  6, "tags": ["Challenges"] },
+		{ "name": "Complete a Dinosaur in the Museum", "difficulty":  5, "tags": ["Challenges"] },
+		{ "name": "Complete 3 Dinosaurs in the Museum", "difficulty":  7, "tags": ["Challenges"] },
 		{ "name": "Fill the dump with trash (Cans, boots, tires)", "difficulty":  10, "tags": ["Challenges"] }
 	],
 	
