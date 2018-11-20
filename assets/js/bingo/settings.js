@@ -20,7 +20,7 @@
 		{ "name": "Catch 3 Snails", "difficulty":  3, "tags": ["Insects"] },
 		{ "name": "Catch 4 insects with 'cicada' in their name", "difficulty":  2, "tags": ["Insects"] },
 		{ "name": "Catch 4 insects with 'cricket' in their name", "difficulty":  3, "tags": ["Insects"] },
-		{ "name": "Catch 10 different insects with 'beetle' in their name", "difficulty":  7, "tags": ["Insects"] },
+		{ "name": "Catch 10 different beetles", "difficulty":  7, "tags": ["Insects"] },
 		{ "name": "Have 20 different insects in your encyclopedia", "difficulty":  4, "tags": ["Insects"] },
 		
 		{ "name": "Catch an Arapaima", "difficulty":  4, "tags": ["Fish"] },
@@ -72,7 +72,7 @@
 		{ "name": "Place a toilet in your house", "difficulty":  7, "tags": ["Furniture"] },
 		{ "name": "Place a totem pole in your house", "difficulty":  6, "tags": ["Furniture"] },
 		{ "name": "Place a stone in your house", "difficulty":  6, "tags": ["Furniture"] },
-		{ "name": "Get an item that has the word 'machine' in its name", "difficulty":  5, "tags": ["Furniture"] },
+		{ "name": "Get an item that has 'machine' in its name", "difficulty":  5, "tags": ["Furniture"] },
 		{ "name": "Place a chess piece in your house", "difficulty":  5, "tags": ["Furniture"] },
 		{ "name": "Place a musical instrument in your house", "difficulty":  4, "tags": ["Furniture"] },
 		{ "name": "Place a Mario or Luigi Trophy in your house", "difficulty":  7, "tags": ["Furniture"] },
@@ -101,7 +101,8 @@
 		{ "name": "Get the Miniature Car and Dolly from Toy Day", "difficulty":  5, "tags": ["Events"] },
 		{ "name": "Get the Aerobics Radio from Morning Aerobics", "difficulty":  7, "tags": ["Events"] },
 		{ "name": "Get the Birthday Cake", "difficulty":  1, "tags": ["Events"] },
-		{ "name": "Get 10 different items that have 'Model' in its name", "difficulty":  5, "tags": ["Events"] },
+		{ "name": "Get 10 different 'Model' items", "difficulty":  5, "tags": ["Events"] },
+		{ "name": "Get 15 different 'Model' items", "difficulty":  7, "tags": ["Events"] },
 		{ "name": "Get the Lighthouse Model or Chocolates", "difficulty":  5, "tags": ["Events"] },
 		
 		{ "name": "See a rainbow over the waterfall", "difficulty":  1, "tags": ["Misc"] },
@@ -117,7 +118,7 @@
 		{ "name": "Fill your inventory with seashells", "difficulty":  1, "tags": ["Tasks"] },
 		{ "name": "Open 5 grab bags", "difficulty":  1, "tags": ["Tasks"] },
 		{ "name": "Buy a pinwheel, balloon, and fan from Redd's stand", "difficulty":  3, "tags": ["Tasks"] },
-		{ "name": "Have Nook repaint your roof without upgrading your house", "difficulty":  5, "tags": ["Tasks"] },
+		{ "name": "Erect a Sign Board", "difficulty":  5, "tags": ["Tasks"] },
 		
 		{ "name": "Pay off your 1st debt", "difficulty":  2, "tags": ["Debts"] },
 		{ "name": "Pay off your 2nd debt", "difficulty":  5, "tags": ["Debts"] },
@@ -149,7 +150,7 @@
 		{ "name": "Eat 2 mushrooms", "difficulty":  2, "tags": ["Nature"] },
 		{ "name": "Get 7 mushrooms", "difficulty":  4, "tags": ["Nature"] },
 		{ "name": "Grow a non-native fruit tree", "difficulty":  4, "tags": ["Nature"] },
-		{ "name": "Grow one of every type of fruit tree, excluding coconuts", "difficulty":  7, "tags": ["Nature"] },
+		{ "name": "Grow one of every type of fruit tree", "difficulty":  9, "tags": ["Nature"] },
 		{ "name": "Plant a flower in every acre", "difficulty":  3, "tags": ["Nature"] },
 		{ "name": "Pick 25 weeds in a single day", "difficulty":  1, "tags": ["Nature"] },
 		{ "name": "Get 2 pieces of furniture from shaking trees", "difficulty":  2, "tags": ["Nature"] },
@@ -175,6 +176,7 @@
 		{ "name": "Get a reward from Wisp", "difficulty":  5, "tags": ["Challenges"] },
 		{ "name": "Complete a Dinosaur in the Museum", "difficulty":  5, "tags": ["Challenges"] },
 		{ "name": "Complete 3 Dinosaurs in the Museum", "difficulty":  7, "tags": ["Challenges"] },
+		{ "name": "Obtain a star in the Catalog", "difficulty":  9, "tags": ["Challenges"] },
 		{ "name": "Fill the dump with trash (Cans, boots, tires)", "difficulty":  10, "tags": ["Challenges"] }
 	],
 	
