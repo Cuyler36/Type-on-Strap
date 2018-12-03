@@ -172,12 +172,12 @@
 		{ "name": "Complete a Dinosaur in the Museum", "difficulty":  5, "tags": ["Challenges"] },
 		{ "name": "Complete 3 Dinosaurs in the Museum", "difficulty":  7, "tags": ["Challenges"] },
 		{ "name": "Obtain a star in the Catalog", "difficulty":  9, "tags": ["Challenges"] },
-		{ "name": "Fill the dump with trash (Cans, boots, tires)", "difficulty":  10, "tags": ["Challenges"] }
+		{ "name": "Fill the dump with trash (Cans, boots, tires)", "difficulty":  10, "tags": ["Challenges"] },
 		
 		{ "name": "Get over 10k HRA points", "difficulty":  3, "tags": ["HRA"] },
 		{ "name": "Get over 50k HRA points", "difficulty":  5, "tags": ["HRA"] },
 		{ "name": "Get over 75k HRA points", "difficulty":  6, "tags": ["HRA"] },
-		{ "name": "Get over 100k HRA points", "difficulty":  7, "tags": ["HRA"] },
+		{ "name": "Get over 100k HRA points", "difficulty":  7, "tags": ["HRA"] }
 		
 	],
 	
