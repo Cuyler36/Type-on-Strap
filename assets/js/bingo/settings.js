@@ -165,11 +165,6 @@
 		{ "name": "Get at least 7 bell bags from one money rock", "difficulty":  2, "tags": ["Digging"] },
 		{ "name": "Get at least 8 bell bags from one money rock", "difficulty":  9, "tags": ["Digging"] },
 		
-		{ "name": "Get over 10k HRA points", "difficulty":  3, "tags": ["HRA"] },
-		{ "name": "Get over 50k HRA points", "difficulty":  5, "tags": ["HRA"] },
-		{ "name": "Get over 75k HRA points", "difficulty":  6, "tags": ["HRA"] },
-		{ "name": "Get over 100k HRA points", "difficulty":  7, "tags": ["HRA"] },
-		
 		{ "name": "Have Tortimer build the extra bridge", "difficulty":  7, "tags": ["Challenges"] },
 		{ "name": "Buy a Town Decoration", "difficulty":  2, "tags": ["Challenges"] },
 		{ "name": "Buy 3 Town Decorations", "difficulty":  4, "tags": ["Challenges"] },
@@ -178,6 +173,12 @@
 		{ "name": "Complete 3 Dinosaurs in the Museum", "difficulty":  7, "tags": ["Challenges"] },
 		{ "name": "Obtain a star in the Catalog", "difficulty":  9, "tags": ["Challenges"] },
 		{ "name": "Fill the dump with trash (Cans, boots, tires)", "difficulty":  10, "tags": ["Challenges"] }
+		
+		{ "name": "Get over 10k HRA points", "difficulty":  3, "tags": ["HRA"] },
+		{ "name": "Get over 50k HRA points", "difficulty":  5, "tags": ["HRA"] },
+		{ "name": "Get over 75k HRA points", "difficulty":  6, "tags": ["HRA"] },
+		{ "name": "Get over 100k HRA points", "difficulty":  7, "tags": ["HRA"] },
+		
 	],
 	
 	"difficulty": {
