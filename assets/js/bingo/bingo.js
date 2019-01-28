@@ -369,7 +369,7 @@ Bingo.prototype.generateBoard = function()
 				}
 				else
 				{
-					console.log("Goal [id]:", goal.id, "was not valid! Goal name:", goal.name, "Goal difficulty:", goal.difficulty);
+					console.log("Goal [id]:", goal.id, "was not valid! Goal name:", goal.name, "Goal difficulty:", goal.difficulty, "Reason for invalidation:", invalidReason);
 				}
 				
 				// safety fallout
