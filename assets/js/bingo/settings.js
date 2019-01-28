@@ -192,7 +192,7 @@
 		"Insects": { "allowmultiple": true, "singleuse": false, "image": "https://i.imgur.com/0QliNsM.png" },
 		"Fish": { "allowmultiple": true, "singleuse": false, "image": "https://i.imgur.com/o9rmcD7.png" },
 		"Series": { "allowmultiple": true, "singleuse": true, "image": "https://i.imgur.com/Xrw6amK.png" },
-		"Furniture": { "allowmultiple": true, "singleuse": false, "image": "https://i.imgur.com/Xrw6amK.png" },
+		"Furniture": { "allowmultiple": false, "singleuse": true, "image": "https://i.imgur.com/Xrw6amK.png" },
 		"Holidays": { "allowmultiple": true, "singleuse": false, "image": "https://i.imgur.com/SHc6fwn.png" },
 		"Random Events": { "allowmultiple": true, "singleuse": false, "image": "https://i.imgur.com/SHc6fwn.png" },
 		"Events": { "allowmultiple": true, "singleuse": false, "image": "https://i.imgur.com/LzkhcNd.png" },
