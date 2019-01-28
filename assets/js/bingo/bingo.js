@@ -16,55 +16,72 @@ Random.prototype.nextGaussian = function()
 }
 
 Random.prototype.nextInt = function(z)
-{ return (this.nextFloat() * z)|0; }
+{
+	return (this.nextFloat() * z) | 0;
+}
 
+// Shuffle's an array's entries randomly.
 Array.prototype.shuffle = function(random)
 {
 	for (var t, i = 1, j; i < this.length; ++i)
 	{
 		j = random.nextInt(i);
-		t = this[j]; this[j] = this[i]; this[i] = t;
+		
+		t = this[j];
+		this[j] = this[i];
+		this[i] = t;
 	}
 
 	return this;
 }
 
+// Clones an array.
 Array.prototype.clone = function()
-{ return this.slice(0); }
+{
+	return this.slice(0);
+}
 
+// Creates an inversed array.
 Array.prototype.flip = function()
 {
 	for (var i = 0; i < this.length; ++i)
 	{
 		var r = this[i], t;
 		for (var j = 0, k = r.length - 1; j < k; ++j, --k)
-		{ t = r[j]; r[j] = r[k]; r[k] = t; }
+		{ 
+			t = r[j];
+			r[j] = r[k];
+			r[k] = t;
+		}
 	}
 }
 
+// Rotates an array by n steps.
 Array.prototype.rotate = function(n)
 {
-	var x = this.length, y = this[0].length;
-	var rotated = new Array(y);
+	var length = this.length, categoryLength = this[0].length;
+	var rotated = new Array(categoryLength);
 
-	for (var i = 0; i < y; ++i)
+	for (var i = 0; i < categoryLength; ++i)
 	{
-		var row = rotated[i] = new Array(x);
-		for (var j = 0; j < x; ++j)
-			rotated[i][j] = this[x-j-1][i];
+		var row = rotated[i] = new Array(length);
+		for (var j = 0; j < length; ++j)
+			rotated[i][j] = this[length-j-1][i];
 	}
 
 	return rotated;
 }
 
+// 
 Array.prototype.bsearch = function(k, f)
 {
-	f = f || function(z){ return z; };
+	f = f || function(z) { return z; };
 	var a = 0, b = this.length, x, v;
 
 	while (a + 1 < b)
 	{
-		v = f( this[x = (a + (b - a) / 2) | 0] );
+		x = (a + (b - a) / 2) | 0;
+		v = f(this[x]);
 		if (k == v) return x;
 		else k < v ? (b = x) : (a = x + 1);
 	}
@@ -74,7 +91,9 @@ Array.prototype.bsearch = function(k, f)
 }
 
 Array.prototype.contains = function(x)
-{ return -1 !== this.indexOf(x); }
+{
+	return -1 !== this.indexOf(x);
+}
 
 function MagicSquare(size, random)
 {
@@ -84,7 +103,8 @@ function MagicSquare(size, random)
 	for (var x = 0; x < size; ++x)
 	{
 		var row = this.square[x] = new Array(size);
-		for (var y = 0; y < size; ++y) row[y] = 0;
+        for (var y = 0; y < size; ++y)
+            row[y] = 0;
 	}
 
 	var x = (size - 1) / 2, y = size - 1, m = size * size;
@@ -253,7 +273,7 @@ function difficulty_sort(a, b)
 	return c == 0 ? a.id - b.id : c;
 }
 
-Bingo.DIFFICULTY_PETURBATION = 0.2;
+Bingo.DIFFICULTY_VARIANCE = 0.2;
 Bingo.MAXITERATIONS = 200;
 
 Bingo.prototype.generateBoard = function()
@@ -271,22 +291,38 @@ Bingo.prototype.generateBoard = function()
 			for (var xx = 0;; xx++)
 			{
 				// failsafe: widen search space after 25 iterations
-				var peturbation = this.random.nextGaussian() * Bingo.DIFFICULTY_PETURBATION;
-				base = Math.min(Math.max(0.0, this.magic.square[i][j] + peturbation), 1.0);
+                var variance = this.random.nextGaussian() * Bingo.DIFFICULTY_VARIANCE;
+
+                // magic.square[i][j] contains the percentage of the square out of the maximum number of squares. e.g. square 1 = 1/25.
+                base = Math.min(Math.max(0.0, this.magic.square[i][j] + variance), 1.0);
 				var ddiff = xx < 25 ? (base * range) : this.random.nextInt(range);
-				
+
+                // Search for the index of our difficulty.
 				x = gs.bsearch(ddiff + this.mindifficulty, function(x){ return x.difficulty; });
-				if (x >= gs.length) x = gs.length - 1;
+                if (x >= gs.length)
+				{
+                    x = gs.length - 1;
+					console.log(x, gs.length);
+				}
+				
+                // Search for the range of goals that fit within our difficulty.
+				var minDifficultyIdx, maxDifficultyIdx;
+				for (minDifficultyIdx = x; minDifficultyIdx > 0 && gs[minDifficultyIdx-1].difficulty == gs[minDifficultyIdx].difficulty; --minDifficultyIdx);
+                for (maxDifficultyIdx = x; maxDifficultyIdx < gs.length - 1 && gs[maxDifficultyIdx + 1].difficulty == gs[maxDifficultyIdx].difficulty; ++maxDifficultyIdx);
 
-				var x1, x2;
-				for (x1 = x; x1 > 0             && gs[x1-1].difficulty == gs[x1].difficulty; --x1);
-				for (x2 = x; x2 < gs.length - 1 && gs[x2+1].difficulty == gs[x2].difficulty; ++x2);
-				x = x1 + this.random.nextInt(x2 - x1);
+				console.log("Minimum difficulty index:", minDifficultyIdx, " | Max difficulty index:", maxDifficultyIdx);
+				
+                // Select the goal for the difficulty.
+				x = minDifficultyIdx + this.random.nextInt(maxDifficultyIdx - minDifficultyIdx);
+				console.log("Selected goal index for difficulty:", x);
 
-				g = this.board[i][j].goal = gs[x]; if (!g) continue;
-				var vmods = ms["*"] || [], tags = g.tags || [], valid = !usedgoals.contains(g.id);
+                // Set goal.
+                g = this.board[i][j].goal = gs[x];
+			    if (!g) continue;
 
-				var img = null;
+			    var vmods = ms["*"] || [], tags = g.tags || [], valid = !usedgoals.contains(g.id);
+                var img = null;
+
 				for (var k = 0; k < tags.length; ++k)
 				{
 					var negated = tags[k].charAt(0) == "-" ? tags[k].substr(1) : ("-" + tags[k]);
