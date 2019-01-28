@@ -322,13 +322,14 @@ Bingo.prototype.generateBoard = function()
 			    if (!goal) continue;
 
 			    var vmods = ms["*"] || [], tags = goal.tags || [], valid = !usedgoals.contains(goal.id);
+				var invalidReason = "Valid goal.";
                 var img = null;
 
 				for (var k = 0; k < tags.length; ++k)
 				{
 					var negated = tags[k].charAt(0) == "-" ? tags[k].substr(1) : ("-" + tags[k]);
-					var tdata = tagdata[tags[k]], allowmult = tdata && 
-						tdata.allowmultiple !== undefined ? tdata.allowmultiple : false;
+					var tdata = tagdata[tags[k]];
+					var allowmult = tdata && tdata.allowmultiple !== undefined ? tdata.allowmultiple : false;
 						
 					// get the image
 					if (!img && tags[k].charAt(0) != '-' && tdata && tdata.image) img = tdata.image;
@@ -338,11 +339,20 @@ Bingo.prototype.generateBoard = function()
 					
 					// failsafe: after 75 iterations, don't constrain on singleuse tags
 					if (!(tags[k] in tagdata)) tdata = tagdata[tags[k]] = {};
-					if (tdata && tdata.singleuse && tdata['@used'] && attempt < 75) valid = false;
+					if (tdata && tdata.singleuse && tdata['@used'] && attempt < 75)
+					{
+						valid = false;
+						invalidReason = "Goal tag was already used & only one type of this tag is allowed!";
+					}
 					
 					for (var z = 0; z < this.board[cardY][cardX].groups.length; ++z)
-						if ((!allowmult && this.board[cardY][cardX].groups[z].contains(tags[k])) ||
-							this.board[cardY][cardX].groups[z].contains(negated)) valid = false;
+					{
+						if ((!allowmult && this.board[cardY][cardX].groups[z].contains(tags[k])) || this.board[cardY][cardX].groups[z].contains(negated))
+						{
+							valid = false;
+							invalidReason = "Goal tag was already used & allowmultiple is disavbled!";
+						}
+					}
 				}
 
 				if (valid)
@@ -351,8 +361,11 @@ Bingo.prototype.generateBoard = function()
 					usedgoals.push(goal.id);
 					if (img) $('<img>').attr('src', img).appendTo(cell);
 					for (var k = 0; k < tags.length; ++k) tagdata[tags[k]]['@used'] = true;
+					
 					$("<span>").addClass("goaltext").text(goal.name).appendTo(cell);
-					goalsTable.splice(goalIndex, 1); break;
+					goalsTable.splice(goalIndex, 1);
+					
+					break;
 				}
 				else
 				{
