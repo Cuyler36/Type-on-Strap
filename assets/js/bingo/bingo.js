@@ -278,50 +278,50 @@ Bingo.MAXITERATIONS = 200;
 
 Bingo.prototype.generateBoard = function()
 {
-	var g, gs = this.gamedata.goals.clone(), x;
+	var goal, goalsTable = this.gamedata.goals.clone(), goalIndex;
 	var m, ms = this.gamedata.modifiers || {};
 	var tagdata = this.gamedata.tags;
 
 	var usedgoals = [];
 
 	var range = this.maxdifficulty - this.mindifficulty;
-	for (var i = 0; i < this.size; ++i)
-		for (var j = 0; j < this.size; ++j)
+	for (var cardY = 0; cardY < this.size; ++cardY)
+		for (var cardX = 0; cardX < this.size; ++cardX)
 		{
-			for (var xx = 0;; xx++)
+			for (var attempt = 0;; attempt++)
 			{
 				// failsafe: widen search space after 25 iterations
                 var variance = this.random.nextGaussian() * Bingo.DIFFICULTY_VARIANCE;
 
-                // magic.square[i][j] contains the percentage of the square out of the maximum number of squares. e.g. square 1 = 1/25.
-                base = Math.min(Math.max(0.0, this.magic.square[i][j] + variance), 1.0);
-				var ddiff = xx < 25 ? (base * range) : this.random.nextInt(range);
+                // magic.square[cardY][cardX] contains the percentage of the square out of the maximum number of squares. e.goal. square 1 = 1/25.
+                base = Math.min(Math.max(0.0, this.magic.square[cardY][cardX] + variance), 1.0);
+				var ddiff = attempt < 25 ? (base * range) : this.random.nextInt(range);
 
                 // Search for the index of our difficulty.
-				x = gs.bsearch(ddiff + this.mindifficulty, function(x){ return x.difficulty; });
-                if (x >= gs.length)
+				goalIndex = goalsTable.bsearch(ddiff + this.mindifficulty, function(goalIndex){ return goalIndex.difficulty; });
+                if (goalIndex >= goalsTable.length)
 				{
-                    x = gs.length - 1;
-					console.log(x, gs.length);
+                    goalIndex = goalsTable.length - 1;
+					console.log(goalIndex, goalsTable.length);
 				}
 				
                 // Search for the range of goals that fit within our difficulty.
 				var minDifficultyIdx, maxDifficultyIdx;
-				for (minDifficultyIdx = x; minDifficultyIdx > 0 && gs[minDifficultyIdx-1].difficulty == gs[minDifficultyIdx].difficulty; --minDifficultyIdx);
-                for (maxDifficultyIdx = x; maxDifficultyIdx < gs.length - 1 && gs[maxDifficultyIdx + 1].difficulty == gs[maxDifficultyIdx].difficulty; ++maxDifficultyIdx);
+				for (minDifficultyIdx = goalIndex; minDifficultyIdx > 0 && goalsTable[minDifficultyIdx-1].difficulty == goalsTable[minDifficultyIdx].difficulty; --minDifficultyIdx);
+                for (maxDifficultyIdx = goalIndex; maxDifficultyIdx < goalsTable.length - 1 && goalsTable[maxDifficultyIdx + 1].difficulty == goalsTable[maxDifficultyIdx].difficulty; ++maxDifficultyIdx);
 
 				console.log("Minimum difficulty index:", minDifficultyIdx, " | Max difficulty index:", maxDifficultyIdx);
 				
                 // Select the goal for the difficulty.
-				x = minDifficultyIdx + this.random.nextInt(maxDifficultyIdx - minDifficultyIdx);
-				console.log("Selected goal index for difficulty:", x);
-				console.log("Selected goal name:", gs[x].name);
+				goalIndex = minDifficultyIdx + this.random.nextInt(maxDifficultyIdx - minDifficultyIdx);
+				console.log("Selected goal index for difficulty:", goalIndex);
+				console.log("Selected goal name:", goalsTable[goalIndex].name);
 
                 // Set goal.
-                g = this.board[i][j].goal = gs[x];
-			    if (!g) continue;
+                goal = this.board[cardY][cardX].goal = goalsTable[goalIndex];
+			    if (!goal) continue;
 
-			    var vmods = ms["*"] || [], tags = g.tags || [], valid = !usedgoals.contains(g.id);
+			    var vmods = ms["*"] || [], tags = goal.tags || [], valid = !usedgoals.contains(goal.id);
                 var img = null;
 
 				for (var k = 0; k < tags.length; ++k)
@@ -334,47 +334,51 @@ Bingo.prototype.generateBoard = function()
 					if (!img && tags[k].charAt(0) != '-' && tdata && tdata.image) img = tdata.image;
 					
 					// failsafe: after 50 iterations, don't constrain on allowmultiple tags
-					if (xx > 50) allowmult = true;
+					if (attempt > 50) allowmult = true;
 					
 					// failsafe: after 75 iterations, don't constrain on singleuse tags
 					if (!(tags[k] in tagdata)) tdata = tagdata[tags[k]] = {};
-					if (tdata && tdata.singleuse && tdata['@used'] && xx < 75) valid = false;
+					if (tdata && tdata.singleuse && tdata['@used'] && attempt < 75) valid = false;
 					
-					for (var z = 0; z < this.board[i][j].groups.length; ++z)
-						if ((!allowmult && this.board[i][j].groups[z].contains(tags[k])) ||
-							this.board[i][j].groups[z].contains(negated)) valid = false;
+					for (var z = 0; z < this.board[cardY][cardX].groups.length; ++z)
+						if ((!allowmult && this.board[cardY][cardX].groups[z].contains(tags[k])) ||
+							this.board[cardY][cardX].groups[z].contains(negated)) valid = false;
 				}
 
 				if (valid)
 				{
-					var cell = this.board[i][j].cell;
-					usedgoals.push(g.id);
+					var cell = this.board[cardY][cardX].cell;
+					usedgoals.push(goal.id);
 					if (img) $('<img>').attr('src', img).appendTo(cell);
 					for (var k = 0; k < tags.length; ++k) tagdata[tags[k]]['@used'] = true;
-					$("<span>").addClass("goaltext").text(g.name).appendTo(cell);
-					gs.splice(x, 1); break;
+					$("<span>").addClass("goaltext").text(goal.name).appendTo(cell);
+					goalsTable.splice(goalIndex, 1); break;
+				}
+				else
+				{
+					console.log("Goal [id]:", goal.id, "was not valid! Goal name:", goal.name, "Goal difficulty:", goal.difficulty);
 				}
 				
 				// safety fallout
-				if (xx > Bingo.MAXITERATIONS)
+				if (attempt > Bingo.MAXITERATIONS)
 				{
-					console.log("Could not find a suitable goal for R" + (i+1) + "xC" + (j+1) + " after " + xx + " iterations");
-					$("<span>").addClass("goaltext").text("[ERROR]").appendTo(this.board[i][j].cell); break;
+					console.log("Could not find a suitable goal for R" + (cardY+1) + "xC" + (cardX+1) + " after " + attempt + " iterations");
+					$("<span>").addClass("goaltext").text("[ERROR]").appendTo(this.board[cardY][cardX].cell); break;
 				}
 			}
 
 			for (var k = 0; k < tags.length; ++k)
 			{
 				if (tags[k] in ms) vmods = vmods.concat(ms[tags[k]]);
-				for (var z = 0; z < this.board[i][j].groups.length; ++z)
-					this.board[i][j].groups[z].push(tags[k]);
+				for (var z = 0; z < this.board[cardY][cardX].groups.length; ++z)
+					this.board[cardY][cardX].groups[z].push(tags[k]);
 			}
 			vmods.sort(difficulty_sort);
 
 			if (vmods.length && (this.modrequired || this.random.nextFloat() < 0.25))
 			{
-				this.board[i][j].mod = m = vmods[this.random.nextInt(vmods.length)];
-				$("<span>").addClass("modtext").text(m.name).appendTo(this.board[i][j].cell);
+				this.board[cardY][cardX].mod = m = vmods[this.random.nextInt(vmods.length)];
+				$("<span>").addClass("modtext").text(m.name).appendTo(this.board[cardY][cardX].cell);
 			}
 		}
 }
