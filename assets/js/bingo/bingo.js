@@ -350,7 +350,7 @@ Bingo.prototype.generateBoard = function()
 						if ((!allowmult && this.board[cardY][cardX].groups[z].contains(tags[k])) || this.board[cardY][cardX].groups[z].contains(negated))
 						{
 							valid = false;
-							invalidReason = "Goal tag was already used & allowmultiple is disavbled!";
+							invalidReason = "Goal tag was already used & allowmultiple is disabled!";
 						}
 					}
 				}
