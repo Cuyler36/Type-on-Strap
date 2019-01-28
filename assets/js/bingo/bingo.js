@@ -315,6 +315,7 @@ Bingo.prototype.generateBoard = function()
                 // Select the goal for the difficulty.
 				x = minDifficultyIdx + this.random.nextInt(maxDifficultyIdx - minDifficultyIdx);
 				console.log("Selected goal index for difficulty:", x);
+				console.log("Selected goal name:", gs[x].name);
 
                 // Set goal.
                 g = this.board[i][j].goal = gs[x];
