@@ -53,10 +53,10 @@ This page contains a list of all tags with a description and argument list for e
 <table name="veq" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>VEQ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Equal</h3></th>
+			<th>VEQ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Version Equals</h3></th>
 			<td>
-			If the boolean <b>Enabled</b> is not <font color="#cc0066">true</font>, the next tag will be skipped.</br>
-			<b>Argument #1:</b> <i><font color="#cc0066">bool</font></i> Enabled
+			If the byte <b>Version</b> is greater than <font color="#cc0066">0</font>, the next tag will be skipped.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> Version
 			</td>
 		</tr>
 	</tbody>
@@ -64,10 +64,10 @@ This page contains a list of all tags with a description and argument list for e
 <table name="vne" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>VNE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Variable Not Equal</h3></th>
+			<th>VNE <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Version Not Equal</h3></th>
 			<td>
-			If the boolean <b>Enabled</b> is <font color="#cc0066">true</font>, the next tag will be skipped</br>
-			<b>Argument #1:</b> <i><font color="#cc0066">bool</font></i> Enabled
+			If the byte <b>Version</b> is <font color="#cc0066">0</font>, the next tag will be skipped.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> Version
 			</td>
 		</tr>
 	</tbody>
@@ -97,10 +97,10 @@ This page contains a list of all tags with a description and argument list for e
 <table name="cpn" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>CPN <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Copy Name</h3></th>
+			<th>CPN <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Controller Pack Name</h3></th>
 			<td>
 			The name of the game's save data. Can be anything.</br>
-			<b>Argument #1:</b> <i><font color="#cc0066">char[]</font></i> CopyName
+			<b>Argument #1:</b> <i><font color="#cc0066">char[]</font></i> ControllerPackName
 			</td>
 		</tr>
 	</tbody>
@@ -188,10 +188,10 @@ This page contains a list of all tags with a description and argument list for e
 <table name="ics" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>ICS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">iNES Checksum</h3></th>
+			<th>ICS <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Image Checksum</h3></th>
 			<td>
-			Calculates a checksum for the iNES ROM. If the additive checksum isn't equal to 0, the ROM is considered corrupted.</br>
-			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> TagsChecksumInverse</br>
+			Calculates a checksum for the NES ROM Image. If the additive checksum isn't equal to 0, the ROM is considered corrupted.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> ImageChecksumInverse</br>
 			</td>
 		</tr>
 	</tbody>
@@ -210,7 +210,7 @@ This page contains a list of all tags with a description and argument list for e
 <table name="rom" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>ROM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Load ROM</h3></th>
+			<th>ROM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">ROM Data Reference</h3></th>
 			<td>
 			Loads another NES ROM from the internal list using <b>RomId</b> to determine which ROM to load. The original tags for the ROM loaded are not used.</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> RomId</br>
@@ -221,7 +221,7 @@ This page contains a list of all tags with a description and argument list for e
 <table name="mov" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>MOV <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Move Data</h3></th>
+			<th>MOV <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Move Data (Block Transfer)</h3></th>
 			<td>
 			Moves a section of data in the ROM from one location to another. <b>WriteAddress</b> and <b>ReadAddress</b> are shifted right by four.</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> WriteAddress</br>
@@ -247,7 +247,11 @@ This page contains a list of all tags with a description and argument list for e
 		<tr>
 			<th>DIF <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Difference</h3></th>
 			<td>
-			Creates a difference of the ROM's program and character data sections. This command's purpose is not fully known yet.</br>
+			Patches multiple sections of the ROM using data from <b>DifferenceData<b>. This command supports multiple changes. To end the changes, set the final <b>OffsetFromLastDifference</b> to 0xFFFFFFFF.</br>
+			<b> Argument #1:</b> <i><font color="#cc0066">uint</font></i> OffsetFromLastDifference</br>
+			<b> Argument #2:</b> <i><font color="#cc0066">int</font></i> DifferenceSize</br>
+			<b> Argument #3:</b> <i><font color="#cc0066">byte[]</font></i> DifferenceData</br>
+			<b> Repeats</b>
 			</td>
 		</tr>
 	</tbody>
@@ -259,9 +263,14 @@ This page contains a list of all tags with a description and argument list for e
 			<td>
 			Writes <b>PatchData</b> to a memory address which is calculated using <b>PatchType</b> and <b>PatchOffset</b>.</br>
 			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> PatchType</br>
-			<font color="#000000"><pre>    If PatchType is 2, the write address will be the address of the ROM + PatchOffset.</pre>
-			<pre>    If PatchType is 3, the patch is skipped.</pre>
-			<pre>    If PatchType is 9, the write address will be the address of the ROM + PatchOffset &lt&lt 4.</pre>
+			<font color="#000000"><pre>    <b>[N64]</b> If PatchType is 1, the write address is set to the address of enables[PatchOffset].</pre>
+			<pre>    If PatchType is 2, the write address will be the address of the ROM + PatchOffset.</pre>
+			<pre>    <b>[N64]</b> If PatchType is 3, the write address is set to osAppNMIBuffer + PatchOffset.</pre>
+			<pre>    <b>[GC]</b> If PatchType is 3, the patch is skipped.</pre>
+			<pre>    <b>[N64]</b> If PatchType is 4, the write address is set to _ovl_famicom_emuSegmentTextStart + PatchOffset * 4.</pre>
+			<pre>    <b>[N64]</b> If PatchType is 5, the write address is set to _ovl_famicom_emuSegmentDataStart + PatchOffset * 4.</pre>
+			<pre>    <b>[N64]</b> If PatchType is 6, the write address is set to _ovl_famicom_emuSegmentBssStart + PatchOffset * 4.</pre>
+			<pre>    <b>[GC]</b> If PatchType is 9, the write address will be the address of the ROM + PatchOffset &lt&lt 4.</pre>
 			<pre>    If PatchType is &gt= 0x80, the write address will be ((0x7F80 + PatchType) &lt&lt 16) | PatchOffset.</pre></font></br>
 			<b>Argument #2:</b> <i><font color="#cc0066">byte</font></i> PatchSize</br>
 			<pre>    Has a maximum size of 0xFB.</pre>
@@ -272,14 +281,26 @@ This page contains a list of all tags with a description and argument list for e
 		</tr>
 	</tbody>
 </table>
+<table name="pad" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>PAD <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Padding</h3></th>
+			<td>
+			Used as padding for alignment. Does not affect anything.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte[]</font></i> Padding</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 <h2>Unused Tags</h2>
 <table name="fil" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>FIL <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<th>FIL <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">WRAM Initialization Fill Data</h3></th>
 			<td>
-			Functions the same as END. If this is encountered, the parser will immediately exit.</br>
+			Copies data to initialize WRAM. Unused in GC titles.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte*</font></i> FillDataPtr</br>
 			</td>
 		</tr>
 	</tbody>
@@ -287,9 +308,10 @@ This page contains a list of all tags with a description and argument list for e
 <table name="isz" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>ISZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<th>ISZ <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Image Size</h3></th>
 			<td>
-			This tag is unused. It may stand for iNES size.</br>
+			Specifies the size of the ROM image. It is unused in all versions.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">ushort</font></i> ImageSize</br>
 			</td>
 		</tr>
 	</tbody>
@@ -297,9 +319,10 @@ This page contains a list of all tags with a description and argument list for e
 <table name="ifm" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>IFM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<th>IFM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Image Format</h3></th>
 			<td>
-			This tag is unused. Its purpose is unknown.</br>
+			The ROM Image format. Goes unused in all versions.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte</font></i> ImageFormat</br>
 			</td>
 		</tr>
 	</tbody>
@@ -307,9 +330,32 @@ This page contains a list of all tags with a description and argument list for e
 <table name="rem" class="commandtable" id="cmdtable">
 	<tbody>
 		<tr>
-			<th>REM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Unknown</h3></th>
+			<th>REM <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Remarks</h3></th>
 			<td>
-			This tag is unused. Its purpose is unknown.</br>
+			Holds comments about the ROM.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">char[]</font></i> Remarks</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="apl" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>APL <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Application Info</h3></th>
+			<td>
+			Holds information about the ROM image for use in other applications. Goes unused in the emulator.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte[]</font></i> Info</br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table name="fgn" class="commandtable" id="cmdtable">
+	<tbody>
+		<tr>
+			<th>FGN <h3 style="background-color:#fff; color:#6761A8; margin-left:20px; display:inline; font-size:0.8em;">Full Game Name</h3></th>
+			<td>
+			The full game name in Shift-JIS encoding. Unused in emulator.</br>
+			<b>Argument #1:</b> <i><font color="#cc0066">byte[]</font></i> FullGameName</br>
 			</td>
 		</tr>
 	</tbody>
